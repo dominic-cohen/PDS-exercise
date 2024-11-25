@@ -62,10 +62,17 @@ public class Program
         app.UseCors();
         app.UseHttpsRedirection();
 
-        // dom has added these options
+        // dom has added these options - to work without manual intervention
+        var clientAppBuildPath = Path.Combine(Directory.GetCurrentDirectory(), "clientapp", "build");
+
+        if (!Directory.Exists(clientAppBuildPath))
+        {
+            Directory.CreateDirectory(clientAppBuildPath);
+        }
+
         app.UseStaticFiles(new StaticFileOptions
         {
-            FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "clientapp", "build")),
+            FileProvider = new PhysicalFileProvider(clientAppBuildPath),
             RequestPath = ""
         });
 

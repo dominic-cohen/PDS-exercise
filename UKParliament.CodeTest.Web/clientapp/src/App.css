@@ -71,7 +71,7 @@
 
 
     .list-person-entry.selected {
-        font-weight: bold;
+        font-weight: normal;
         color: red;
         border: 2px solid #005bb5;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
